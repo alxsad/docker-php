@@ -12,7 +12,7 @@ RUN apk update \
             --with-png-dir=/usr/include/ \
     && docker-php-ext-install pdo pdo_mysql gd \
     && pecl install apcu \
-    && docker-php-ext-enable apcu
+    && docker-php-ext-enable apcu \
     && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
     && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
     && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
