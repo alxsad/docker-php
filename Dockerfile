@@ -10,8 +10,8 @@ RUN apk update \
             --with-freetype-dir=/usr/include/ \
             --with-jpeg-dir=/usr/include/ \
             --with-png-dir=/usr/include/ \
+    && yes '' | pecl install apcu-5.1.8 \            
     && docker-php-ext-install pdo pdo_mysql gd \
-    && pecl install apcu \
     && docker-php-ext-enable apcu \
     && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
     && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
